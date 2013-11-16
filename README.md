@@ -13,7 +13,7 @@ It is done with two weekends so there will be bugs and defects.
 # Visualization
 It is not trivial to monitor an optimization procedure with 1 million parameters or more. One way is to map the weights to colors (assuming most of the weights are within [-1,1]) and show them together as an image. Input is on Y-axis (rows) and output is on X-axis (columns). There are 4 RBMs in the sample image (rbm-131.png): 784->300, 300->300, 300->500, 500->10. Check out the images periodically and you can have a rought idea whether the parameters look right.
 
-# Building
+# Building Trunk
 
 C++ 11 is extensivily used and currently only clang 3.1 is tested for building. GraphicsMagick is used to generate the representation and is the only dependency.
 
@@ -30,6 +30,12 @@ Under Ubuntu it is much easier thanks to the new version of libstdc++. Once you 
 `clang++ --std=c++0x -o dbn -g -O2 demo.cc -lz -I /usr/include/GraphicsMagick -lGraphicsMagick++`
 
 You'll also need to install GraphicsMagick probably with apt-get before that.
+
+# Building vs10 Branch
+
+There is a Visual Studio project file included. The include and library paths for zlib and boost will need to be set. Currently the project is using zlib as a dll.
+
+There is currently no support for GraphicsMagick in this branch.
 
 # Train and Test
 The data fiels are available at http://yann.lecun.com/exdb/mnist/.
