@@ -7,6 +7,8 @@
 
 #include <zlib.h>
 
+#include <cstdint>
+
 struct Sample
 {
 	uint8_t label_;
@@ -19,7 +21,7 @@ struct Exception: public std::exception
 {
 	std::string message_;
 	Exception(const std::string& msg): message_(msg) {}
-	~Exception() noexcept(true) {}
+	~Exception() {}
 };
 
 struct GzipFile

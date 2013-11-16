@@ -3,14 +3,23 @@
 #include <vector>
 #include <numeric>
 #include <random>
+#include <float.h>
 
 typedef std::vector<float> Vector;
 
 namespace v {
 	struct LightVector: public std::pair<float *, float *>
 	{
-	  using Parent = std::pair<float *, float *>;
-	  template <typename... Arg> LightVector(Arg&& ... arg): Parent(std::forward<Arg>(arg) ...) {}
+	  typedef std::pair<float *, float *> Parent;
+
+    LightVector(){}
+	  
+    template <class Arg> 
+    LightVector(Arg&& arg1, Arg&& arg2): Parent(std::forward<Arg>(arg1), std::forward<Arg>(arg2)) 
+    {}
+
+    LightVector(float* arg1, float* arg2): Parent(arg1, arg2) 
+    {}
 
 	  float *data() const { return first; }
 	  size_t size() const { return std::distance(first, second); }
@@ -64,7 +73,12 @@ namespace v {
 	}
 
 	inline bool isfinite(const Vector& x) { 
-		for(auto const& i: x) { if (! std::isfinite(i)) return false; } 
+    Vector::const_iterator iStart = x.begin(), iEnd = x.end();
+    while (iStart != iEnd)
+    {
+      if (! _finite(*iStart)) return false;
+      ++iStart;
+    }
 		return true;
 	}
 
