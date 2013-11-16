@@ -127,7 +127,7 @@ void test_dbn(std::vector<Sample>& samples, std::vector<Vector>& inputs, bool is
   std::cout << "# " << correct << " recognized." << std::endl;
 }
 
-int _tmain(int argc, _TCHAR* argv[])
+int main(int argc, char* argv[])
 {
   if (argc != 4) {
     std::cerr << "Usage: " << argv[0] << "<train-simple|train|test> <image-file> <label-file>" << std::endl;
