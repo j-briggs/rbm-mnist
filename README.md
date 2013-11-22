@@ -59,3 +59,7 @@ There is no extensive testing result yet. Below are some intial numbers for your
 The improvement from the CG fine tuning is obvious. It would not be difficult to tune and reproduce the same results in Hinton's paers.
 
 During the tests it turns out that the topology (numbers of hidden/visible units) does not impact much on the performance.
+
+# TODO
+Add minibatches
+use momentum
