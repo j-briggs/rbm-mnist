@@ -61,5 +61,5 @@ The improvement from the CG fine tuning is obvious. It would not be difficult to
 During the tests it turns out that the topology (numbers of hidden/visible units) does not impact much on the performance.
 
 # TODO
-Add minibatches
-use momentum
+* Add minibatches.
+* use momentum.
